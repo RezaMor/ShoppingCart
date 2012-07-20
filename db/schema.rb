@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120716130127) do
+ActiveRecord::Schema.define(:version => 20120720062138) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "cat_name",        :limit => 50, :default => "", :null => false
+    t.string   "cat_description"
+    t.string   "cat_image"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
+
+  create_table "categories_products", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "product_id"
+  end
 
   create_table "orders", :force => true do |t|
     t.datetime "od_date"
@@ -37,6 +50,42 @@ ActiveRecord::Schema.define(:version => 20120716130127) do
     t.string   "od_payment_postal_code",  :limit => 10,                                :default => "", :null => false
     t.datetime "created_at",                                                                           :null => false
     t.datetime "updated_at",                                                                           :null => false
+  end
+
+  create_table "product_orders", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "order_id"
+    t.integer  "po_pd_qty"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "pd_name",        :limit => 50,                               :default => "", :null => false
+    t.string   "pd_description"
+    t.decimal  "pd_price",                     :precision => 5, :scale => 2
+    t.string   "pd_picture"
+    t.integer  "pd_qty"
+    t.datetime "pd_date"
+    t.datetime "pd_last_update"
+    t.datetime "created_at",                                                                 :null => false
+    t.datetime "updated_at",                                                                 :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "user_name",            :limit => 50,                  :null => false
+    t.string   "user_password_digest",                                :null => false
+    t.string   "user_email",                                          :null => false
+    t.string   "user_first_name",      :limit => 50,                  :null => false
+    t.string   "user_last_name",       :limit => 50,                  :null => false
+    t.string   "user_phone",           :limit => 32,  :default => "", :null => false
+    t.string   "user_city",            :limit => 100, :default => "", :null => false
+    t.string   "user_state",           :limit => 32,  :default => "", :null => false
+    t.string   "user_postal_code",     :limit => 10,  :default => "", :null => false
+    t.datetime "user_regdate",                                        :null => false
+    t.datetime "user_last_login",                                     :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
   end
 
 end

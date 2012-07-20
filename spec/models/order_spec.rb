@@ -60,85 +60,85 @@ describe Order do
     it { should respond_to(:od_payment_state) }
     it { should respond_to(:od_payment_postal_code) }
    
-    describe "Some Order attributes cannot be nil" do
+    describe "the presence of attributes" do
        subject {@order}
-       describe "Not nil status" do
+       describe "Not empty status" do
           before  { @order.od_status = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil last_update" do
+       describe "Not empty last_update" do
           before  { @order.od_last_update = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil memo" do
+       describe "Not empty memo" do
           before  { @order.od_memo = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_first_name" do
+       describe "Not empty shipping_first_name" do
           before  { @order.od_shipping_first_name = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_last_name" do
+       describe "Not empty shipping_last_name" do
           before  { @order.od_shipping_last_name = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_address1" do
+       describe "Not empty shipping_address1" do
           before  { @order.od_shipping_address1 = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_address2" do
+       describe "Not empty shipping_address2" do
           before  { @order.od_shipping_address2 = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_phone" do
+       describe "Not empty shipping_phone" do
           before  { @order.od_shipping_phone = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_city" do
+       describe "Not empty shipping_city" do
           before  { @order.od_shipping_city = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_state" do
+       describe "Not empty shipping_state" do
           before  { @order.od_shipping_state = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_postal_code" do
+       describe "Not empty shipping_postal_code" do
           before  { @order.od_shipping_postal_code = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil shipping_cost" do
+       describe "Not empty shipping_cost" do
           before  { @order.od_shipping_cost = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_first_name" do
+       describe "Not empty payment_first_name" do
           before  { @order.od_payment_first_name = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_last_name" do
+       describe "Not empty payment_last_name" do
           before  { @order.od_payment_last_name = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_address1" do
+       describe "Not empty payment_address1" do
           before  { @order.od_payment_address1 = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_address2" do
+       describe "Not empty payment_address2" do
           before  { @order.od_payment_address2 = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_phone" do
+       describe "Not empty payment_phone" do
           before  { @order.od_payment_phone = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_city" do
+       describe "Not empty payment_city" do
           before  { @order.od_payment_city = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_state" do
+       describe "Not empty payment_state" do
           before  { @order.od_payment_state = " "}
           it  { should_not be_valid }
        end
-       describe "Not nil payment_postal_code" do
+       describe "Not empty payment_postal_code" do
           before  { @order.od_payment_postal_code = " "}
           it  { should_not be_valid }
        end

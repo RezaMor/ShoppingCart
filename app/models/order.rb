@@ -34,6 +34,10 @@ class Order < ActiveRecord::Base
                   :od_payment_state, :od_shipping_address1, :od_shipping_address2, :od_shipping_city, :od_shipping_cost,
                   :od_shipping_first_name, :od_shipping_last_name, :od_shipping_phone, :od_shipping_postal_code, 
                   :od_shipping_state, :od_status)
+                  
+   has_many :product_orders
+   has_many :products, :through => :product_orders
+   #has_many :categories, :through => :products
    
    validates(:od_status, presence: true)
    validates(:od_last_update, presence: true)
