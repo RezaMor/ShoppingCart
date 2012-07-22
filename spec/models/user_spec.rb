@@ -43,7 +43,6 @@ describe User do
     
     describe "The presence of attributes" do
       subject {@user}
-      
       describe "presence of user_name" do
           before{ @user.user_name = " " }
           it { should_not be_valid}
@@ -56,8 +55,123 @@ describe User do
           before{ @user.user_email = " " }
           it { should_not be_valid}
       end
-      
-      
+      describe "presence of user_first_name" do
+          before{ @user.user_first_name = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_last_name" do
+          before{ @user.user_last_name = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of password" do
+          before{ @user.password = " " }
+          it { should_not be_valid}
+      end      
+      describe "presence of user_password" do
+          before{ @user.user_password = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_password_confirmation" do
+          before{ @user.user_password = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_regdate" do
+          before{ @user.user_regdate = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_phone" do
+          before{ @user.user_phone = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_city" do
+          before{ @user.user_city = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_state" do
+          before{ @user.user_state = " " }
+          it { should_not be_valid}
+      end
+      describe "presence of user_password_digest" do
+          before{ @user.user_password_digest = " " }
+          it { should_not be_valid}
+      end              
     end
+    
+#    describe "when attributes are too long" do
+#      subject {@user}
+#      describe "Long user_name" do
+#          before  { @user.user_name = "a"*51 }
+#          it  { should_not be_valid }
+#      end
+#      describe "Long user_first_name" do
+#           before  { @user.user_first_name = "a"*51 }
+#           it  { should_not be_valid }
+#      end
+#      describe "Long user_last_name" do
+#           before  { @user.user_last_name = "a"*51 }
+#           it  { should_not be_valid }
+#      end
+#      describe "Long user_phone" do
+#           before  { @user.user_phone = "a"*33 }
+#           it  { should_not be_valid }
+#      end
+#      describe "Long user_city" do
+#           before  { @user.user_city = "a"*101 }
+#           it  { should_not be_valid }
+#      end
+#      describe "Long user_state" do
+#           before  { @user.user_state = "a"*33 }
+#           it  { should_not be_valid }
+#      end
+#      describe "Long user_postal_code" do
+#           before  { @user.user_postal_code = "a"*11 }
+#           it  { should_not be_valid }
+#      end
+#    end
+#    
+    
+    describe "when emails should be valid" do
+      it "should be valid" do
+        emails = %w[xxx.yyy@mmm.com xxx-yyy@mmm.com xxx_yyy@mmm.com]
+        emails.each do |e_address|
+          @user.user_email = e_address
+          @user.should be_valid
+        end
+      end
+    end
+    
+    describe "when emails should not be  valid" do
+      it "should not be valid" do
+        emails = %w[xxx+yyy@mmm.com xxx-yyy@m-m.com xxx_yyy@m.m.com xxx,yyy@mmm.com]
+        emails.each do |e_address|
+          @user.user_email = e_address
+          @user.should_not be_valid
+         end
+       end
+     end
+     
+  describe "when phones should be valid" do
+    it "should be valid" do
+      phones = %w[00982122047028 +98(21)22047028 +98(21)22-01-475-90 +1(234)97398-3497]
+      phones.each do |phone|
+        @user.user_phone = phone
+        @user.should be_valid
+      end
+    end
+  end
+  
+  describe "when phones should not be  valid" do
+    it "should not be valid" do
+      phones = %w[982122047028 +98()22047028 +98$(21)22-01-475-90 +1(234)97398-3497-]
+      phones.each do |phone|
+        @user.user_phone = phone
+        @user.should_not be_valid
+       end
+     end
+   end
+     
+     
+
+     
   
 end

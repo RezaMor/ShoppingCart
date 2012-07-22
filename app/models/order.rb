@@ -37,6 +37,7 @@ class Order < ActiveRecord::Base
                   
    has_many :product_orders
    has_many :products, :through => :product_orders
+   #belongs_to :users
    #has_many :categories, :through => :products
    
    validates(:od_status, presence: true)
