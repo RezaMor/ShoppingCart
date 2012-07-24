@@ -13,7 +13,7 @@
 class ProductOrder < ActiveRecord::Base
   attr_accessible :order_id, :po_pd_qty, :product_id
   
-  belongs_to :products
-  belongs_to :orders
+  belongs_to :product
+  belongs_to :order
   
 end
