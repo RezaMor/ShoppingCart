@@ -1,0 +1,16 @@
+<h1>Categories New Page</h1>
+
+	<%= form_for(@category) do |f| %>
+
+		<%= f.label :cat_name %>
+		<%= f.text_field :cat_name %>
+
+		<%= f.label :cat_description %>
+		<%= f.text_field :cat_description %>
+		
+		<%= f.label :cat_image %>
+		<%= f.text_field :cat_image %>
+		
+		<%= f.submit "Create Category" %>
+	<% end %>
+

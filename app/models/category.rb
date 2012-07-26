@@ -12,6 +12,7 @@
 
 class Category < ActiveRecord::Base
   attr_accessible :cat_description, :cat_image, :cat_name
+  validates(:cat_name, presence: true, length: { maximum: 50 })
   has_and_belongs_to_many :products
   has_many :product_orders, :through => :products
   has_many :orders, :through => :product_orders
