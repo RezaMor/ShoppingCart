@@ -1,0 +1,27 @@
+<h1>Products New Page</h1>
+
+    <%= form_for(@product) do |f| %>
+    
+      <%= f.label :pd_name%>
+      <%= f.text_field :pd_name%>
+      
+      <%= f.label :pd_description%>
+      <%= f.text_field :pd_description%>
+      
+      <%= f.label :pd_picture%>
+      <%= f.text_field :pd_picture%>
+      
+      <%= f.label :pd_price%>
+      <%= f.text_field :pd_price%>
+      
+      <%= f.label :pd_qty%>
+      <%= f.text_field :pd_qty%>
+ 	   
+ 	  <!--<%= f.label :categories%>-->   
+      <!-- <%= f.collection_select(:categories, Category.all, :id, :cat_name, :prompt => true) %> -->
+      <%= f.label :category_name%>
+      <%= f.text_field :category_name%>
+    
+      <%= f.submit "Create Product" %>
+      
+	<% end %>
